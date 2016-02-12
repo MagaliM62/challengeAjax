@@ -1,0 +1,26 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 12 févr. 2016, 11:11:44
+    Author     : magali
+*/
+
+<option value="<?php echo $data["Id_client"]?>"> </option>
+
+        
+                <?php
+        define(SERVER, "localhost");    
+        define(LOGIN, "root");
+        define(MDP, "luka2501!");
+        define(BASE, "home"); //parametre de connection
+         
+        $connect=mysqli_connect(SERVER, LOGIN,MDP,BASE)/*connection BBD*/ OR die("probleme de connexion");//voir si la bbd est bien connectée
+        
+        $sql= 'SELECT * FROM clients ORDER BY nom'; //recherche element table ordonnée par nom
+        
+        $res = mysqli_query($connect,$sql);
+        while($data=mysqli_fetch_assoc ($res)){
+  ?>
